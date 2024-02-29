@@ -7,7 +7,11 @@ document.querySelector('.main-nav').addEventListener('click', function(event) {
       } else if (theme === '😎 Light Mode') {
         document.body.className = '';
       } else if (theme == '🌗 OS Default') {
-        document.body.className = '';
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.body.className = 'dark';
+        } else {
+          document.body.className = '';
+        }
       }
     }
   });
